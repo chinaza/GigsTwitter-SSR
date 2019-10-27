@@ -1,0 +1,162 @@
+<template>
+  <div>
+    <div class="container">
+      <nav
+        class="navbar is-primary is-fixed-top"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <a class="navbar-item" style="padding-left:20px" @click="submitQ()">
+            <img src="/img/logo.png" class="nav-logo" />
+          </a>
+
+          <div
+            class="navbar-item"
+            style="position:absolute; left:60px; right:20px;"
+          >
+            <div class="field" style="width:100%">
+              <p class="control has-icons-left">
+                <input
+                  v-model="q"
+                  class="input"
+                  type="text"
+                  placeholder="Role (e.g. Customer Service)"
+                  @keyup="submitQ($event)"
+                />
+                <span class="icon is-left">
+                  <i class="icon ion-md-search"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nuxt-child />
+    </div>
+
+    <progress
+      v-if="isLoading"
+      class="progress app-loader is-small is-danger"
+      max="100"
+      >80%</progress
+    >
+    <nav
+      class="navbar is-light is-fixed-bottom"
+      role="navigation"
+      aria-label="main navigation"
+      @click="submitQ()"
+    >
+      <div class="navbar-item has-text-centered" style="width:100%;">
+        <h4 class="has-text-centered" style="margin: 0 auto">#GigsTwitter</h4>
+      </div>
+    </nav>
+    <Alert />
+  </div>
+</template>
+
+<script>
+import Twitter from '~/services/twitter';
+import Loc from '~/services/location';
+import Alert from '~/components/Alert.vue';
+
+export default {
+  components: {
+    Alert
+  },
+  data() {
+    return {
+      q: '',
+      pos: null,
+      twitter: new Twitter()
+    };
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    }
+  },
+
+  async mounted() {
+    try {
+      this.$store.commit('isLoading', true);
+
+      this.q = this.$route.params.q || '';
+      this.pos = await Loc.getLatLng();
+
+      this.$store.dispatch('fetchGigs', this.q, this.pos);
+      this.twitter = new Twitter(this.pos);
+
+      this.$store.commit('isLoading', false);
+    } catch (error) {
+      this.$store.commit('isLoading', false);
+      this.$store.dispatch('toggleAlert', {
+        isOpen: true,
+        message: error.message
+      });
+    }
+  },
+
+  beforeCreate() {
+    this.$store.dispatch('fetchGigs', this.q);
+  },
+
+  methods: {
+    async submitQ(e) {
+      if (!e || e.key.toLowerCase() === 'enter') {
+        this.$store.commit('isLoading', true);
+        try {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          this.$store.commit('twitterQ', this.q);
+          const tweets = await this.twitter.loadData(this.q);
+          this.$store.commit('tweets', tweets);
+          this.$store.commit('isLoading', false);
+        } catch (error) {
+          this.$store.commit('isLoading', false);
+          this.$store.dispatch('toggleAlert', {
+            isOpen: true,
+            message: error.message
+          });
+        }
+      }
+    }
+  }
+};
+</script>
+
+<style>
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}
+</style>

@@ -1,0 +1,23 @@
+:root {
+  --primary: #3880ff;
+  --background: #efefef;
+  --light: #fafafa;
+}
+
+.is-primary {
+  background-color: var(--primary) !important;
+}
+
+.is-light {
+  background-color: var(--light) !important;
+  color: #111 !important;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.4);
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+.container {
+  background: var(--background) !important;
+}
