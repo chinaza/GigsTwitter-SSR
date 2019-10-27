@@ -78,15 +78,38 @@ export default {
     }
   },
 
+  async asyncData({ route, store }) {
+    try {
+      const q = route.params.q || '';
+
+      const twitter = new Twitter();
+      const tweets = await twitter.loadData(q);
+
+      store.commit('twitterQ', q);
+      store.commit('tweets', tweets);
+
+      return tweets;
+    } catch (error) {
+      store.dispatch('toggleAlert', {
+        isOpen: true,
+        message: error.message
+      });
+    }
+  },
+
   async mounted() {
     try {
       this.$store.commit('isLoading', true);
 
-      this.q = this.$route.params.q || '';
+      this.q = this.$route.query.q || '';
       this.pos = await Loc.getLatLng();
 
-      this.$store.dispatch('fetchGigs', this.q, this.pos);
-      this.twitter = new Twitter(this.pos);
+      const twitter = new Twitter(this.pos);
+      this.tweets = await twitter.loadData(this.q);
+
+      this.$store.commit('twitterQ', this.q);
+      this.$store.commit('setPos', this.pos);
+      this.$store.commit('tweets', this.tweets);
 
       this.$store.commit('isLoading', false);
     } catch (error) {
@@ -96,10 +119,6 @@ export default {
         message: error.message
       });
     }
-  },
-
-  beforeCreate() {
-    this.$store.dispatch('fetchGigs', this.q);
   },
 
   methods: {

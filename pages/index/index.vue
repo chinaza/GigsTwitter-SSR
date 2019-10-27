@@ -18,6 +18,11 @@ export default {
     tweets() {
       return this.$store.state.twitter.tweets;
     }
+  },
+  head() {
+    return {
+      title: '#GigTwitter'
+    };
   }
 };
 </script>
