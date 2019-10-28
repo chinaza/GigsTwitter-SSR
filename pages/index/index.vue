@@ -25,8 +25,8 @@ export default {
     }
   },
   mounted() {
-    const gwindow = window;
-    (gwindow.adsbygoogle = gwindow.adsbygoogle || []).push({});
+    // const gwindow = window;
+    // (gwindow.adsbygoogle = gwindow.adsbygoogle || []).push({});
   },
   head() {
     return {
