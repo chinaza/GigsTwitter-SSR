@@ -26,7 +26,7 @@
           <button
             v-if="tweet.entities.urls.length > 0"
             class="button is-primary"
-            @click="openGig(tweet.entities.urls[0].url)"
+            @click="openGig(tweet.entities.urls[0].url, tweet.id_str)"
           >
             Apply
           </button>
@@ -34,7 +34,8 @@
             class="button is-secondary"
             @click="
               openGig(
-                `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`
+                `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`,
+                tweet.id_str
               )
             "
           >
@@ -47,12 +48,22 @@
 </template>
 
 <script>
+import Twitter from '~/services/twitter';
+
 export default {
   name: 'Gig',
   props: ['tweet'],
+  data() {
+    return {
+      twitter: new Twitter()
+    };
+  },
   methods: {
-    openGig(link) {
+    openGig(link, id) {
       window.open(link, '_blank');
+      try {
+        this.twitter.logTweet(id);
+      } catch (error) {}
     }
   }
 };

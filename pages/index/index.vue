@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Gig from '~/components/Gig.vue';
 // import Adsense from '~/components/Adsense.vue';
 
@@ -17,6 +16,7 @@ export default {
   name: 'Home',
   components: {
     Gig
+
     // Adsense
   },
   computed: {

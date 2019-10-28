@@ -30,4 +30,20 @@ export default class Twitter {
       throw error;
     }
   }
+
+  async logTweet(id) {
+    try {
+      const { response } = await this.http.makeRequest({
+        url: '/log/gigclick',
+        method: 'post',
+        data: {
+          twId: id
+        }
+      });
+
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
