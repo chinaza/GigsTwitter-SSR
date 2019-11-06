@@ -22,6 +22,7 @@
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
+      window.ga = ga || window.ga || null;
       function gtag() {
         dataLayer.push(arguments);
       }
