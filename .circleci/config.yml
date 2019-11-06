@@ -1,5 +1,7 @@
 version: 2
 jobs:
+  build:
+  #...
   deploy:
     machine:
       enabled: true
@@ -7,11 +9,15 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: ssh $SSH_USER@twgigs.com "gssr"
+
 workflows:
   version: 2
-  deploy:
+  build-and-deploy:
     jobs:
+      - build
       - deploy:
+        requires:
+          - build
         filters:
           branches:
             only: master
