@@ -6,7 +6,7 @@ jobs:
     steps:
       - run:
           name: Deploy Over SSH
-          command: ssh $SSH_USER@twgigs.com "~/scripts/gssr"
+          command: ssh $SSH_USER@twgigs.com "source .profile; gssr;"
 
 workflows:
   version: 2
