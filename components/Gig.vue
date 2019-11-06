@@ -60,6 +60,9 @@ export default {
   },
   methods: {
     openGig(link, id) {
+      if (window && window.ga)
+        window.ga('send', 'event', 'GIG_CARD', 'CLICK', this.link);
+
       window.open(link, '_blank');
       try {
         this.twitter.logTweet(id);

@@ -125,6 +125,10 @@ export default {
     async submitQ(e) {
       if (!e || e.key.toLowerCase() === 'enter') {
         this.$store.commit('isLoading', true);
+
+        if (window && window.ga)
+          window.ga('send', 'event', 'SEARCH_BAR', 'SEARCH', this.q);
+
         try {
           window.scrollTo({
             top: 0,
