@@ -22,12 +22,7 @@
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      window.ga =
-        window.ga ||
-        function() {
-          (ga.q = ga.q || []).push(arguments);
-        };
-      ga.l = +new Date();
+
       function gtag() {
         dataLayer.push(arguments);
       }
@@ -35,6 +30,19 @@
 
       gtag('config', 'G-4G8HR0XV2V');
     </script>
+    <script>
+      window.ga =
+        window.ga ||
+        function() {
+          (ga.q = ga.q || []).push(arguments);
+        };
+      ga.l = +new Date();
+    </script>
+    <script
+      async
+      src="https://www.google-analytics.com/analytics.js?id=G-4G8HR0XV2V"
+    ></script>
+    <!-- End Google Analytics -->
     <nuxt />
   </div>
 </template>
