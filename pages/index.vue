@@ -126,8 +126,11 @@ export default {
       if (!e || e.key.toLowerCase() === 'enter') {
         this.$store.commit('isLoading', true);
 
-        if (window && window.ga)
-          window.ga('send', 'event', 'SEARCH_BAR', 'SEARCH', this.q);
+        if (window && window.gtag)
+          window.gtag('event', 'view_search_results', {
+            event_category: 'engagement',
+            event_label: this.q
+          });
 
         try {
           window.scrollTo({

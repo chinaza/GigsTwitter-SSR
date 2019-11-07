@@ -29,19 +29,8 @@
       gtag('js', new Date());
 
       gtag('config', 'G-4G8HR0XV2V');
+      window.gtag = gtag;
     </script>
-    <script>
-      window.ga =
-        window.ga ||
-        function() {
-          (ga.q = ga.q || []).push(arguments);
-        };
-      ga.l = +new Date();
-    </script>
-    <script
-      async
-      src="https://www.google-analytics.com/analytics.js?id=G-4G8HR0XV2V"
-    ></script>
     <!-- End Google Analytics -->
     <nuxt />
   </div>

@@ -60,8 +60,11 @@ export default {
   },
   methods: {
     openGig(link, id) {
-      if (window && window.ga)
-        window.ga('send', 'event', 'GIG_CARD', 'CLICK', this.link);
+      if (window && window.gtag)
+        window.gtag('event', 'view_item', {
+          event_category: 'engagement',
+          event_label: link
+        });
 
       window.open(link, '_blank');
       try {
