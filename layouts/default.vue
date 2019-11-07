@@ -22,7 +22,12 @@
     ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      window.ga = ga || window.ga || null;
+      window.ga =
+        window.ga ||
+        function() {
+          (ga.q = ga.q || []).push(arguments);
+        };
+      ga.l = +new Date();
       function gtag() {
         dataLayer.push(arguments);
       }
