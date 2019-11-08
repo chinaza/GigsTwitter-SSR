@@ -8,16 +8,15 @@
       data-ad-client="ca-pub-8522455793322408"
       data-ad-slot="2134179299"
     ></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Adsense',
-  mounted() {
-    var adsbygoogle;
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  }
+  name: 'Adsense'
 };
 </script>
 <style scoped>
