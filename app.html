@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <head {{ HEAD_ATTRS }}>
+    {{
+      HEAD
+    }}
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "#GigsTwitter",
+        "alternateName": "Curated job vacancies from twitter",
+        "url": "https://twgigs.com/",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://twgigs.com/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+  </head>
+  <body {{ BODY_ATTRS }}>
+    {{ APP }}
+  </body>
+</html>
