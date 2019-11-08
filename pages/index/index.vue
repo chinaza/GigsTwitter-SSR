@@ -23,6 +23,10 @@ export default {
       return this.$store.state.twitter.tweets;
     }
   },
+  mounted() {
+    var adsbygoogle;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  },
   head() {
     return {
       title: '#GigsTwitter - Curated job vacancies from twitter'
