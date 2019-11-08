@@ -22,8 +22,7 @@
 export default {
   name: 'Adsense',
   beforeMount() {
-    let adsbygoogle;
-    (adsbygoogle = window.adsbygoogle || []).push({});
+    (adsbygoogle = window.adsbygoogle || []).push({}); // eslint-disable-line no-undef
   }
 };
 </script>
