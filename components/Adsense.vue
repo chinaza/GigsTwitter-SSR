@@ -22,7 +22,8 @@
 export default {
   name: 'Adsense',
   mounted() {
-    (window.adsbygoogle || []).push({});
+    let adsbygoogle;
+    (adsbygoogle = window.adsbygoogle || []).push({});
   }
 };
 </script>
