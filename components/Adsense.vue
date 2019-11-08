@@ -2,12 +2,12 @@
   <div className="ad" style="width:100%">
     <ins
       class="adsbygoogle"
-      style="display: block"
+      style="display:block"
       data-ad-format="fluid"
-      data-ad-layout-key="-fb+5w+4e-db+86"
+      data-ad-layout-key="-gg-2m-29-3h+ys"
       data-ad-client="ca-pub-8522455793322408"
-      data-ad-slot="8376613461"
-    />
+      data-ad-slot="2134179299"
+    ></ins>
   </div>
 </template>
 
