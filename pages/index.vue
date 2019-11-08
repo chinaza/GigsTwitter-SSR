@@ -8,7 +8,7 @@
       >
         <div class="navbar-brand">
           <a class="navbar-item" style="padding-left:20px" @click="submitQ()">
-            <img src="/img/logo.png" class="nav-logo" />
+            <img src="/img/logo.png" class="nav-logo" alt="logo" />
           </a>
 
           <div
