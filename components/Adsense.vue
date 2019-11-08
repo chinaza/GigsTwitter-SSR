@@ -1,9 +1,9 @@
 <template>
   <div class="box constrained-box tw-card" style="width:100%">
-    <script
+    <!-- <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    ></script>
+    ></script> -->
     <ins
       class="adsbygoogle"
       style="display:block"
@@ -12,15 +12,19 @@
       data-ad-client="ca-pub-8522455793322408"
       data-ad-slot="2134179299"
     ></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <!-- <script>
+      
+    </script> -->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Adsense'
+  name: 'Adsense',
+  beforeMount() {
+    let adsbygoogle;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
 };
 </script>
 <style scoped>
