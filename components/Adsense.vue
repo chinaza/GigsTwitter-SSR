@@ -13,7 +13,11 @@
 
 <script>
 export default {
-  name: 'Adsense'
+  name: 'Adsense',
+  mounted() {
+    var adsbygoogle;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  }
 };
 </script>
 <style scoped>
