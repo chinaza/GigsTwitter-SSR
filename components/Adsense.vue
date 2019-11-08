@@ -21,8 +21,8 @@
 <script>
 export default {
   name: 'Adsense',
-  beforeMount() {
-    (adsbygoogle = window.adsbygoogle || []).push({}); // eslint-disable-line no-undef
+  mounted() {
+    (window.adsbygoogle || []).push({});
   }
 };
 </script>
