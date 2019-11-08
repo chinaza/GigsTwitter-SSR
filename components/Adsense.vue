@@ -1,5 +1,5 @@
 <template>
-  <div className="ad" style="width:100%">
+  <div class="box constrained-box tw-card" style="width:100%">
     <ins
       class="adsbygoogle"
       style="display:block"
