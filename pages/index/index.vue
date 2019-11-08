@@ -30,7 +30,7 @@ export default {
   },
   head() {
     return {
-      title: '#GigTwitter'
+      title: '#GigsTwitter - Curated job vacancies from twitter'
     };
   }
 };

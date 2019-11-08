@@ -88,6 +88,27 @@ export default {
       store.commit('twitterQ', q);
       store.commit('tweets', tweets);
 
+      // const gStruct = {
+      //   '@context': 'https://schema.org',
+      //   '@type': 'ItemList',
+      //   url: 'https://www.twgigs.com',
+      //   name: 'Job Vacancies',
+      //   numberOfItems: 4,
+      //   itemListElement: []
+      // };
+
+      // let iCount = 0;
+      // for (const t in tweets) {
+      //   if (iCount >= 10) break;
+      //   gStruct.itemListElement.push({
+      //     '@type': 'ListItem',
+      //     position: 1,
+      //     name: t.text,
+      //     url: `https://www.twgigs.com/?id=${t.id_str}`
+      //   });
+      //   icount++;
+      // }
+
       return tweets;
     } catch (error) {
       store.dispatch('toggleAlert', {

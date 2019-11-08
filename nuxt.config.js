@@ -7,11 +7,15 @@ module.exports = {
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
+      {
+        name: 'title',
+        content: '#GigsTwitter - Curated job vacancies from twitter'
+      },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         name: 'keywords',
         content:
-          'jobs twitter gigs vacancy role recruitment hiring urgent fulltime part-time ongoing urgent jobberman'
+          'jobs, twitter, gigs, vacancy, role, recruitment, hiring, urgent, fulltime, part-time, ongoing, contract, jobberman jobs,job vacancies, ngcareers, Latest jobs,jobs,vacancies,recruitment,careers,employment opportunities, graduate jobs, trainee Jobs, latest nigerian jobs,careers, jobs in lagos, jobs in abuja fct, jobs in port harcourt, vacancies, recruitment, oil and gas jobs, banking jobs, telecommunications jobs, ngo jobs,recruitment agencies Nigeria, nysc jobs, fresh graduates jobs, Submit CV, Nigerian Banks,company reviews, companies ratings, companies reviews,seeking jobs, i want a job, graduate jobs in nigeria, graduate nigeria jobs, graduate career jobs, graduate africa jobs, graduate Job nigeria, graduate nigeria online, hotnigerianjobs.com, jobs nigeria, career jobs, nigerianhotjobs, naijahotjobs, careers nigeria, graduate employment, graduate graduate jobs, graduate Nigerian Online, graduate Africa Jobs'
       },
       {
         property: 'og:url',
@@ -19,12 +23,14 @@ module.exports = {
       },
       {
         property: 'og:title',
-        content: '#GigsTwitter'
+        content: '#GigsTwitter - Curated job vacancies from twitter'
       },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content:
+          process.env.npm_package_description ||
+          'Curated job vacancies from twitter'
       }
     ],
     link: [
