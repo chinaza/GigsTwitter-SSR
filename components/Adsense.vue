@@ -1,5 +1,9 @@
 <template>
   <div class="box constrained-box tw-card" style="width:100%">
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
     <ins
       class="adsbygoogle"
       style="display:block"
