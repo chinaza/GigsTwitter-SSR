@@ -18,7 +18,6 @@ export default {
     const adScript = document.createElement('script');
     adScript.innerHTML = `
     (adsbygoogle = window.adsbygoogle || []).push({});
-    console.log('called');
     `;
     document.getElementById('adsense-scripts').appendChild(adScript);
   }
