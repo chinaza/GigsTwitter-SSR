@@ -3,7 +3,7 @@
     <h6 style="margin: 0 auto; margin-bottom:5px">RECENT TWEETS</h6>
     <div v-for="(tweet, i) in tweets" :key="i">
       <Gig :tweet="tweet" />
-      <Adsense v-if="i % 6 === 0 && i !== 0" />
+      <Adsense v-if="i % 4 === 0 && i !== 0" />
     </div>
   </div>
 </template>
